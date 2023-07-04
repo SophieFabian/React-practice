@@ -1,13 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import Wordle from "./Wordle/Wordle";
+import TicTacToe from "./TicTacToe_react/tictac_r";
+import TipCalculator from "./TipCalculator/index";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Wordle /> */}
+    {/* <App /> */}
+    <TipCalculator />
+    {/* <TicTacToe /> */}
   </React.StrictMode>
 );
 
