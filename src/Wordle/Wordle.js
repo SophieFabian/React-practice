@@ -12,12 +12,12 @@ export default function Wordle() {
 
   useEffect(() => {
     const handleKeyPress = ({ key, keyCode }) => {
-      console.log("handleKeyPress", key, keyCode);
+      // console.log("handleKeyPress", key, keyCode);
       if (ended) {
         return;
       }
       if (keyCode === 13) {
-        console.log("GuessedWords", guessedWords, "ActualWord", actualWord);
+        // console.log("GuessedWords", guessedWords, "ActualWord", actualWord);
         if (actualWord.length === 5) {
           if (guessedWords.length > 5 || actualWord === solutionWord) {
             setEnded(true);
@@ -79,53 +79,59 @@ export default function Wordle() {
   };
 
   return (
-    <div className="board">
-      {lines.map((lineIndex) => {
-        if (guessedWords.length == lineIndex) {
-          return (
-            <div className="line" key={lineIndex} id={lineIndex}>
-              {tiles.map((tileIndex) => {
-                return (
-                  <div className="tile" key={`${lineIndex}_${tileIndex}`}>
-                    {actualWord[tileIndex]}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        } else if (guessedWords && lineIndex < guessedWords.length) {
-          const lineWord = guessedWords[lineIndex];
-          return (
-            <div className="line" key={lineIndex} id={lineIndex}>
-              {tiles.map((tileIndex) => {
-                const tileClass = getTileClass(
-                  lineWord,
-                  solutionWord,
-                  tileIndex
-                );
-                return (
-                  <div
-                    className={`tile ${tileClass}`}
-                    key={`${lineIndex}_${tileIndex}`}
-                  >
-                    {lineWord[tileIndex]}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        } else {
-          return (
-            <div className="line" key={lineIndex} id={lineIndex}>
-              {tiles.map((tileIndex) => {
-                return (
-                  <div className="tile" key={`${lineIndex}_${tileIndex}`}></div>
-                );
-              })}
-            </div>
-          );
-        }
-      })}
-    </div>
+    <>
+      <h1>WORDLE</h1>
+      <div className="board">
+        {lines.map((lineIndex) => {
+          if (guessedWords.length === lineIndex) {
+            return (
+              <div className="line" key={lineIndex} id={lineIndex}>
+                {tiles.map((tileIndex) => {
+                  return (
+                    <div className="tile" key={`${lineIndex}_${tileIndex}`}>
+                      {actualWord[tileIndex]}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          } else if (guessedWords && lineIndex < guessedWords.length) {
+            const lineWord = guessedWords[lineIndex];
+            return (
+              <div className="line" key={lineIndex} id={lineIndex}>
+                {tiles.map((tileIndex) => {
+                  const tileClass = getTileClass(
+                    lineWord,
+                    solutionWord,
+                    tileIndex
+                  );
+                  return (
+                    <div
+                      className={`tile ${tileClass}`}
+                      key={`${lineIndex}_${tileIndex}`}
+                    >
+                      {lineWord[tileIndex]}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          } else {
+            return (
+              <div className="line" key={lineIndex} id={lineIndex}>
+                {tiles.map((tileIndex) => {
+                  return (
+                    <div
+                      className="tile"
+                      key={`${lineIndex}_${tileIndex}`}
+                    ></div>
+                  );
+                })}
+              </div>
+            );
+          }
+        })}
+      </div>
+    </>
   );
 }

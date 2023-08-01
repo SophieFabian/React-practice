@@ -96,7 +96,7 @@ export default function TicTacToe() {
 
   return (
     <>
-      <div>{headerText}</div>
+      <h1>{headerText}</h1>
       <div id="board" style={{ display: "flex", flexDirection: "column" }}>
         {rows.map((row) => {
           return <Row rowIndex={row} key={row} />;

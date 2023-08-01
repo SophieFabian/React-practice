@@ -12,7 +12,7 @@ export default function Wordle() {
   useEffect(() => {
     const handleKeyPress = ({ key, keyCode }) => {
       setFired(true);
-      console.log("🚀 handleKeyPress ~ keyCode:", keyCode);
+      // console.log("🚀 handleKeyPress ~ keyCode:", keyCode);
       setActualWord((prevWord) => {
         if (keyCode === 13) {
           if (prevWord.length === 5) {

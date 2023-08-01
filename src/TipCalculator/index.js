@@ -10,11 +10,11 @@ export default function TipCalculator() {
   const totalTip = (bill * percent) / 100;
   const personTip = totalTip / people;
 
-  console.log("bill", bill, typeof bill);
-  console.log("percent", percent);
-  console.log("people", people);
-  console.log("totalTip", totalTip);
-  console.log("personTip", personTip);
+  // console.log("bill", bill, typeof bill);
+  // console.log("percent", percent);
+  // console.log("people", people);
+  // console.log("totalTip", totalTip);
+  // console.log("personTip", personTip);
 
   const calculateTip = () => {
     return isNaN(personTip) || !(people > 0) ? "-" : `$${personTip.toFixed(2)}`;
