@@ -63,7 +63,27 @@ export default function Memory() {
 
   return (
     <div>
-      <h1>{usedColors.length !== 4 ? "Memory" : "YouWin!"}</h1>
+      <h3>Memory Game</h3>
+      <ol>
+        <li>You have 4 pairs of colored tiles.</li>
+        <li>
+          Colors are randomly associated with the tiles, and hidden at start.
+        </li>
+        <li>
+          When you click on a tile, it "turns" (colored to the associated
+          color).
+        </li>
+        <li>
+          When you click on a 2nd tile,{" "}
+          <ul>
+            <li>if it matches the 1st upturned tile, it stays that way</li>
+            <li> otherwise they stay for a second and then turn back.</li>
+          </ul>
+        </li>
+        <li>You win when all tiles are turned up.</li>
+        <li>You can restart after you won.</li>
+      </ol>
+      <h1>{usedColors.length !== 4 ? "Memory" : "You Won!"}</h1>
       <div className="memoryBoard">
         {tiles &&
           tiles.map((tile, index) => {

@@ -27,6 +27,23 @@ export default function ClosedList({ items }) {
 
   return (
     <>
+      <h3>
+        Implement a feature to allow item selection with the following
+        requirements:
+      </h3>
+      <ol>
+        <li>Clicking an item selects/unselects it.</li>
+        <li>Multiple items can be selected at a time.</li>
+        <li>
+          Make sure to avoid unnecessary re-renders of each list item in the big
+          list (performance)
+        </li>
+        <li>Currently selected items should be visually highlighted.</li>
+        <li>
+          Currently selected items' names should be shown at the top of the
+          page.
+        </li>
+      </ol>
       <SelectedApples highlightedElements={highlightedElements} />
       <ul className="List" key="colored-apples-list">
         {items.map((item, index) => {

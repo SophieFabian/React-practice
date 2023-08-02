@@ -21,38 +21,86 @@ export default function TipCalculator() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        fontSize: 17,
+      }}
+    >
       <h1>TIP CALCULATOR</h1>
-      <form>
-        <label htmlFor="bill">Bill</label>
+      <ul>
+        <li>
+          Create a form with the bill sum, tip percentage and party size as
+          input fields.
+        </li>
+        <li>
+          As these inputs are entered, calculate the total tip and the tip per
+          person on screen.
+        </li>
+        <li>If bill is zero ur undefined, tip should be 0.</li>
+        <li>
+          If persons are 0 or not definedm show "-" instead of the tip amount.
+        </li>
+      </ul>
+      <form style={{ display: "flex", flexDirection: "column" }}>
+        <label
+          htmlFor="bill"
+          style={{ margin: "8px 0 4px 0", fontWeight: 600 }}
+        >
+          Bill
+        </label>
         <input
           id="bill"
           min={0}
           type="number"
-          placeholder={50}
+          placeholder={100}
           onChange={(event) => setBill(event.target.value)}
           value={bill}
+          style={{ width: 300 }}
         />
-        <label htmlFor="percent">Tip Percentage</label>
+
+        <label
+          htmlFor="percent"
+          style={{ margin: "8px 0 4px 0", fontWeight: 600 }}
+        >
+          Tip Percentage
+        </label>
         <input
           id="percent"
           type="number"
           min={0}
-          placeholder={18}
+          placeholder={0}
           onChange={(event) => setPercent(event.target.value)}
           value={percent}
+          style={{ width: 300 }}
         />
-        <label htmlFor="people">Number of People</label>
+
+        <label
+          htmlFor="people"
+          style={{ margin: "8px 0 4px 0", fontWeight: 600 }}
+        >
+          Number of People
+        </label>
         <input
           id="people"
           type="number"
           min={1}
-          placeholder={1}
+          placeholder={0}
           onChange={(event) => setPeople(event.target.value)}
           value={people}
+          style={{ width: 300 }}
         />
-        <p>Total Tip: {`$${totalTip.toFixed(2)}`}</p>
-        <p>Tip Per Person: {calculateTip()}</p>
+
+        <p>
+          <span style={{ fontWeight: 600 }}>Total Tip:</span>{" "}
+          {`$${totalTip.toFixed(2)}`}
+        </p>
+        <p>
+          <span style={{ fontWeight: 600 }}>Tip Per Person:</span>{" "}
+          {calculateTip()}
+        </p>
       </form>
     </div>
   );

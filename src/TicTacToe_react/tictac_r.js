@@ -16,8 +16,8 @@ export default function TicTacToe() {
 
   const xHeader = "Player X's turn";
   const oHeader = "Player O's turn";
-  const xWonHeader = "Player X's WON";
-  const oWonHeader = "Player O's WON";
+  const xWonHeader = "Player X WON";
+  const oWonHeader = "Player O WON";
 
   const [xMoves, setXMoves] = useState([]);
   const [oMoves, setOMoves] = useState([]);
@@ -51,18 +51,19 @@ export default function TicTacToe() {
   };
 
   const cellClickHandler = (event) => {
+    console.log("🚀 ~ file: tictac_r.js:54 ~ cellClickHandler ~ event:", event);
+    const cell = Number(event.target.id);
+    const lastMove = xMoves.length + oMoves.length === 8;
     if (winner === "") {
-      const cell = Number(event.target.id);
       if (isXTurn) {
         const newXMoves = [...xMoves, cell];
         setXMoves(newXMoves);
-        const didXWin = evaluate(newXMoves);
         if (evaluate(newXMoves)) {
           setWinner("X");
           setHeaderText(xWonHeader);
         } else {
           setIsXTurn(false);
-          setHeaderText(xHeader);
+          setHeaderText(!lastMove ? oHeader : "It's a tie");
         }
       } else {
         const newOMoves = [...oMoves, cell];
@@ -72,7 +73,7 @@ export default function TicTacToe() {
           setHeaderText(oWonHeader);
         } else {
           setIsXTurn(true);
-          setHeaderText(oHeader);
+          setHeaderText(!lastMove ? xHeader : "It's a tie");
         }
       }
     }
@@ -97,6 +98,10 @@ export default function TicTacToe() {
   return (
     <>
       <h1>{headerText}</h1>
+      <h4 style={{ textAlign: "center" }}>
+        Classic Tic Tac Toe, 2 players on 1 computer, show whose turn it is and
+        declare the winner.
+      </h4>
       <div
         id="board"
         style={{
@@ -109,7 +114,6 @@ export default function TicTacToe() {
           return <Row rowIndex={row} key={row} />;
         })}
       </div>
-      <button style={{ marginLeft: 500, marginTop: 24 }}>Reset</button>
     </>
   );
 }

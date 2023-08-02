@@ -7,17 +7,31 @@ export default function PhoneInput() {
   const typePhone = (event) => {
     setPhone(phoneFormat(event.target.value));
   };
-  // console.log(phone);
+  console.log(phone, phone.length);
 
   return (
     <>
+      <h3>Implement a phone number input field</h3>
+      <ol>
+        <li>Correct format is (123) 456-7890</li>
+        <li>Let there be a placeholder in correct format.</li>
+        <li>
+          Make sure that you can only type numbers, and they appear in correct
+          format.
+        </li>
+        <li>
+          Make sure that when you delete characters, phone number keeps its
+          format.
+        </li>
+        <li>Submit button is disabled until you have a valid phone number.</li>
+      </ol>
       <input
         type="tel"
         onChange={typePhone}
         value={phone}
         placeholder="(555) 555-5555"
       />
-      <button>Submit</button>
+      <button disabled={phone.length < 14}>Submit</button>
     </>
   );
 }

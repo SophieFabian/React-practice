@@ -81,6 +81,35 @@ export default function Wordle() {
   return (
     <>
       <h1>WORDLE</h1>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <ul>
+          <li>Just start typing!</li>
+          <li>
+            Game follows the rules of the classic NYT wordle:
+            <ul>
+              <li>Start typing! (Yes, just start it!)</li>
+              <li>
+                You can add or delete letters, and after you filled a row, you
+                can hit enter to reveal your luck.
+              </li>
+              <li>If the letter is grey, it's a miss.</li>
+              <li>
+                If the letter is yellow, it's a half hit: correct letter, wrong
+                place.
+              </li>
+              <li>
+                If the letter is grey, it's a hit: correct letter, correct
+                place.
+              </li>
+              <li>You have 5 guesses.</li>
+              <li style={{ color: "grey", fontSize: 10 }}>
+                Khmmm.... there is no dictionary behind it, so you can type
+                non-words too....
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       <div className="board">
         {lines.map((lineIndex) => {
           if (guessedWords.length === lineIndex) {
