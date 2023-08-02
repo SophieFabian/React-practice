@@ -79,7 +79,15 @@ export default function Memory() {
             );
           })}
       </div>
-      <button disabled={usedColors.length !== 4} onClick={restart}>
+      <button
+        disabled={usedColors.length !== 4}
+        onClick={restart}
+        className={
+          usedColors.length == 4
+            ? "memoryBoardButton"
+            : "disabledMemoryBoardButton"
+        }
+      >
         Restart
       </button>
     </div>

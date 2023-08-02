@@ -48,7 +48,7 @@ export default function ClosedList({ items }) {
 
 const SelectedApples = ({ highlightedElements }) => {
   return (
-    <div className="selectedApples">{[...highlightedElements].join(", ")}</div>
+    <div className="SelectedApples">{[...highlightedElements].join(", ")}</div>
   );
 };
 
@@ -63,7 +63,7 @@ const ListItem = ({ name, color, selectItem, highLighted }) => {
     <li
       key={name}
       className={`List__item List__item--${color} ${
-        highLighted ? "highlighted" : ""
+        highLighted ? "Highlighted" : ""
       }`}
       onClick={selectItem}
     >

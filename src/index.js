@@ -2,19 +2,61 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Wordle from "./Wordle/Wordle";
+import Tabs from "./Tabs/Tabs";
 import TicTacToe from "./TicTacToe_react/tictac_r";
 import TipCalculator from "./TipCalculator/index";
 import Memory from "./Memory/index";
 import Timer from "./Timer/index";
 import ClosedList, { items } from "./Closed-list/ClosedList";
 import PhoneInput from "./PhoneNumber/phone";
+import PersistedCounter from "./PersistedCounter/PersistedCounter";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const tabs = [
+  {
+    title: "Closed List",
+    content: <ClosedList items={items} />,
+  },
+  {
+    title: "Persisted Counter",
+    content: <PersistedCounter />,
+  },
+  {
+    title: "Phone Input",
+    content: <PhoneInput />,
+  },
+  {
+    title: "Timer",
+    content: <Timer />,
+  },
+  {
+    title: "Memory",
+    content: <Memory />,
+  },
+  {
+    title: "Wordle",
+    content: <Wordle />,
+  },
+  {
+    title: "TipCalculator",
+    content: <TipCalculator />,
+  },
+  {
+    title: "TicTacToe",
+    content: <TicTacToe />,
+  },
+  {
+    title: "App",
+    content: <App />,
+  },
+];
 root.render(
   <React.StrictMode>
-    <ClosedList items={items} />
+    <Tabs tabs={tabs} />
+
+    {/* <ClosedList items={items} />
     <hr />
     <PhoneInput />
     <hr />
@@ -26,7 +68,7 @@ root.render(
     <hr />
     <TipCalculator /> <hr />
     <TicTacToe /> <hr />
-    <App />
+    <App /> */}
   </React.StrictMode>
 );
 

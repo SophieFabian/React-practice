@@ -4,10 +4,25 @@
 }
 h1 {
   margin-bottom: 0;
+} */
+
+.memoryBoard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  margin: 0 300px;
 }
 
-button,
-input[type="button"] {
+.memoryTile {
+  flex-basis: 40%;
+  border: 1px solid black;
+  height: 20px;
+  background-color: white;
+}
+
+.memoryBoardButton {
   display: block;
   margin: 0 10px 10px auto;
   cursor: pointer;
@@ -18,20 +33,15 @@ input[type="button"] {
   color: white;
 }
 
-.memoryBoard {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-}
-
-.memoryTile {
-  flex-basis: 40%;
-  border: 1px solid black;
-  width: 20px;
-  height: 20px;
-  background-color: white;
+.disabledMemoryBoardButton {
+  background-color: lightGrey;
+  color: darkgrey;
+  cursor: not-allowed;
+  display: block;
+  margin: 0 10px 10px auto;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
 }
 
 .green {
@@ -45,4 +55,4 @@ input[type="button"] {
 }
 .yellow {
   background-color: yellow;
-} */
+}

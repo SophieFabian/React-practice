@@ -30,7 +30,7 @@ export default function TicTacToe() {
       ? "X"
       : oMoves.includes(cellIndex)
       ? "O"
-      : cellIndex;
+      : ""; // or cellindex
     return (
       <div
         style={{
@@ -97,12 +97,19 @@ export default function TicTacToe() {
   return (
     <>
       <h1>{headerText}</h1>
-      <div id="board" style={{ display: "flex", flexDirection: "column" }}>
+      <div
+        id="board"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         {rows.map((row) => {
           return <Row rowIndex={row} key={row} />;
         })}
       </div>
-      <button>Reset</button>
+      <button style={{ marginLeft: 500, marginTop: 24 }}>Reset</button>
     </>
   );
 }
