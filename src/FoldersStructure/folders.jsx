@@ -1,3 +1,3 @@
-import {folders } from './data'
-
-const findFolder =
+import { folders } from "./data";
+// Task: find a file in a folder stucture
+const findFolder = () => {};

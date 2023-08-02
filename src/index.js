@@ -15,6 +15,10 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const tabs = [
+  // {
+  //   title: "Countries",
+  //   content: <Countries />,
+  // },
   {
     title: "Closed List",
     content: <ClosedList items={items} />,
